@@ -165,7 +165,10 @@ const Touchable = (
     },
 
     getInitialState() {
-      return this.touchableGetInitialState();
+      if (this.touchableGetInitialState !== undefined) {
+        return this.touchableGetInitialState();
+      }
+      return { touchable: { touchState: undefined, responderID: null } };
     },
 
     componentDidMount() {
